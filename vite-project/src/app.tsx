@@ -1,3 +1,10 @@
+import { ThemeProvider } from './components/theme/theme-provider'
+import { Home } from './pages/home'
+
 export function App() {
-  return <></>
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="app-theme">
+      <Home />
+    </ThemeProvider>
+  )
 }
