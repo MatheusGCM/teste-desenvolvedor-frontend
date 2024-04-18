@@ -51,13 +51,13 @@ export function TableFilters({
       />
       <Input
         placeholder="Nome da empresa"
-        className="h-8 w-auto"
+        className="hidden h-8 w-auto md:flex"
         disabled={!!medicineName}
         {...register('company')}
       />
-      <Button variant="secondary" size="xs" type="submit">
-        <Search className="mr-2 h-4 w-4" />
-        Filtrar resultados
+      <Button variant="secondary" size="xs" type="submit" disabled={!hasSearch}>
+        <Search className="mr-0 h-4 w-4 sm:mr-2" />
+        <span className="hidden sm:flex">Filtrar resultados</span>
       </Button>
       <Button
         onClick={filtersRemove}
@@ -66,8 +66,8 @@ export function TableFilters({
         type="button"
         disabled={!hasSearch}
       >
-        <X className="mr-2 h-4 w-4" />
-        Remover filtro
+        <X className="mr-0 h-4 w-4 sm:mr-2" />
+        <span className="hidden sm:flex">Remover filtro</span>
       </Button>
     </form>
   )

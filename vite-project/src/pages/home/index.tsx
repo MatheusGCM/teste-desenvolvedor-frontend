@@ -51,12 +51,20 @@ export function Home() {
           <Table>
             <TableHeader>
               <TR>
-                <TableHead className="w-[15rem]">Identificador</TableHead>
+                <TableHead className=" hidden w-[15rem] md:table-cell">
+                  Identificador
+                </TableHead>
                 <TableHead className="w-[20rem]">Medicamento</TableHead>
-                <TableHead className="w-[25rem]">Empresa</TableHead>
-                <TableHead className="w-[10rem]">Bula do Paciente</TableHead>
-                <TableHead className="w-[10rem]">Bula do Profisional</TableHead>
-                <TableHead className="text-right">
+                <TableHead className="hidden w-[25rem] sm:table-cell">
+                  Empresa
+                </TableHead>
+                <TableHead className="hidden w-[10rem] lg:table-cell">
+                  Bula do Paciente
+                </TableHead>
+                <TableHead className="hidden w-[10rem] lg:table-cell">
+                  Bula do Profisional
+                </TableHead>
+                <TableHead className="hidden w-[5rem] sm:table-cell">
                   <Button variant="ghost" onClick={toggleOrderDate}>
                     <span>Data de Publicação</span>
                     <ArrowUpDown className="ml-2 inline h-4 w-4" />

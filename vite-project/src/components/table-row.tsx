@@ -14,12 +14,16 @@ export function TableRow({
   documents,
 }: Medicine) {
   return (
-    <TR>
-      <TableCell className="font-mono text-xs font-medium">{id}</TableCell>
+    <TR className="text-center sm:text-left">
+      <TableCell className="hidden font-mono text-xs font-medium md:table-cell">
+        {id}
+      </TableCell>
       <TableCell className="font-medium">{name}</TableCell>
 
-      <TableCell className="font-medium">{company}</TableCell>
-      <TableCell className=" font-medium">
+      <TableCell className="hidden font-medium sm:table-cell">
+        {company}
+      </TableCell>
+      <TableCell className="hidden font-medium lg:table-cell">
         <Linking
           href={documents.find((item) => item.type === 'PATIENT')?.url}
           className="flex flex-col items-center"
@@ -28,7 +32,7 @@ export function TableRow({
           <p>PDF</p>
         </Linking>
       </TableCell>
-      <TableCell className="font-medium">
+      <TableCell className="hidden font-medium lg:table-cell">
         <Linking
           href={documents.find((item) => item.type === 'PROFESSIONAL')?.url}
           className="flex flex-col items-center"
@@ -37,7 +41,7 @@ export function TableRow({
           <p>PDF</p>
         </Linking>
       </TableCell>
-      <TableCell className="pe-8 text-right text-muted-foreground">
+      <TableCell className="hidden text-center text-muted-foreground sm:table-cell">
         {format(publishedAt, 'dd/MM/yyyy')}
       </TableCell>
     </TR>
