@@ -39,22 +39,23 @@ export function useTableData() {
     const storedState: Medicine[] = JSON.parse(storedStateAsJSON)
     const { medicineName, company } = data
     let filteredResponse: Medicine[] = []
-
-    if (medicineName) {
-      filteredResponse = storedState?.filter((medicine) =>
-        medicine.name
-          .toLocaleLowerCase()
-          .includes(medicineName.toLocaleLowerCase()),
-      )
-    } else if (company) {
-      filteredResponse = storedState?.filter((medicine) =>
-        medicine.company
-          .toLocaleLowerCase()
-          .includes(company.toLocaleLowerCase()),
-      )
+    if (medicineName || company) {
+      if (medicineName) {
+        filteredResponse = storedState?.filter((medicine) =>
+          medicine.name
+            .toLocaleLowerCase()
+            .includes(medicineName.toLocaleLowerCase()),
+        )
+      } else if (company) {
+        filteredResponse = storedState?.filter((medicine) =>
+          medicine.company
+            .toLocaleLowerCase()
+            .includes(company.toLocaleLowerCase()),
+        )
+      }
+      setData(filteredResponse)
+      setCurrentPage(1)
     }
-    setData(filteredResponse)
-    setCurrentPage(1)
   }
 
   function handleFiltersRemove() {
